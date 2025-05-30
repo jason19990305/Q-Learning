@@ -59,6 +59,7 @@ class main():
         
     def train(self):
         for epoch in range(self.epochs):
+            print(self.epsilon)
             # reset environment
             state, info = self.env.reset()
             done = False
