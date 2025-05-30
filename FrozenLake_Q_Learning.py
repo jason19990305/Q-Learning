@@ -16,7 +16,6 @@ class main():
         
         # Hyperparameters
         self.min_epsilon = args.min_epsilon
-        self.decay_rate = args.decay_rate
         self.epochs = args.epochs
         self.alpha = args.alpha     # learning rate
         self.gamma = args.gamma     # discount factor
@@ -100,11 +99,10 @@ class main():
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser("Hyperparameters Setting for Q-learning")
-    parser.add_argument("--min_epsilon", type=float, default=0.01, help="Minimun epsilon")
-    parser.add_argument("--decay_rate", type=float, default=0.001, help="Decay rate of epsilon")
+    parser.add_argument("--min_epsilon", type=float, default=0.01, help="Minimum value of epsilon (exploration rate)")
     parser.add_argument("--epochs", type=int, default=40000, help="Maximun number of rollout steps")
-    parser.add_argument("--alpha", type=float, default=0.8, help="Learning rate of q-table")
-    parser.add_argument("--gamma", type=float, default=0.95, help="Learning rate of q-table")
+    parser.add_argument("--alpha", type=float, default=0.8, help="Learning rate for updating Q-table")
+    parser.add_argument("--gamma", type=float, default=0.95, help="Discount factor for future rewards")
 
     args = parser.parse_args()
     
